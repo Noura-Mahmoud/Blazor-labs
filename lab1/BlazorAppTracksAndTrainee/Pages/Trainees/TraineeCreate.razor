@@ -1,0 +1,96 @@
+﻿@page "/trainees/create"
+@page "/traineecreate"
+@inject NavigationManager NavigationManager
+
+<h3>Create Trainee</h3>
+
+@code {
+    private Trainee newTrainee = new Trainee();
+
+    public bool Saved;
+
+    protected async Task HandleValidSubmit()
+    {
+        // Add new trainee to data source
+        newTrainee.ID = MockData.Trainees.Count + 1;
+        MockData.Trainees.Add(newTrainee);
+
+        // Set Saved to true to show success message
+        Saved = true;
+        await Task.Delay(1000); // Simulating the save operation with a delay
+        Saved = false;
+        NavigationManager.NavigateTo("/trainees"); // Navigate back to the trainees page
+
+        // Reset newTrainee object for next submission
+        newTrainee = new Trainee();
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        // Set Saved to false to show validation error message
+        Saved = false;
+    }
+}
+
+@if(!Saved)
+{
+    <EditForm Model="@newTrainee" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group row">
+            <label for="name" class="col-form-label">Name: </label>
+            <InputText id="name" class="form-control" @bind-Value="@newTrainee.Name" placeholder="Enter name"></InputText>
+            <ValidationMessage For="@(() => newTrainee.Name)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="gender" class="col-form-label">Gender: </label>
+            <select id="gender" class="form-control" @bind="newTrainee.Gender" required>
+                @foreach (var gender in Enum.GetValues(typeof(Gender)))
+                {
+                    <option value="@gender">@gender</option>
+                }
+            </select>
+            <ValidationMessage For="@(() => newTrainee.Gender)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="email" class="col-form-label">Email: </label>
+            <InputText id="email" class="form-control" @bind-Value="@newTrainee.Email" placeholder="Enter email"></InputText>
+            <ValidationMessage For="@(() => newTrainee.Email)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="mobileNo" class="col-form-label">Mobile No: </label>
+            <InputText id="mobileNo" class="form-control" @bind-Value="@newTrainee.MobileNo" placeholder="Enter mobile no"></InputText>
+            <ValidationMessage For="@(() => newTrainee.MobileNo)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="birthdate" class="col-form-label">Birthdate: </label>
+            <InputDate id="birthdate" class="form-control" @bind-Value="@newTrainee.Birthdate"></InputDate>
+            <ValidationMessage For="@(() => newTrainee.Birthdate)" />
+        </div>
+
+        <div class="form-group form-check row">
+            <label for="isGraduated" class="col-form-label">Is Graduated: </label>
+            <InputCheckbox id="isGraduated" class="form-control form-check-input" @bind-Value="@newTrainee.IsGraduated" checked="@newTrainee.IsGraduated"></InputCheckbox>
+            <ValidationMessage For="@(() => newTrainee.IsGraduated)" />
+        </div>
+        <br>
+        <div class="form-group row">
+        <br>
+            <button type="submit" class="btn btn-primary">Create trainee</button>
+        </div>
+    </EditForm>
+}
+else
+{
+    <div class="alert-success">
+        Trainee created successfully.
+    </div>
+}
+

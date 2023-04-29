@@ -1,0 +1,43 @@
+﻿@page "/trainees/delete/{id:int}"
+@page "/traineedelete/{id:int}"
+
+@inject NavigationManager NavigationManager
+
+<h1>Delete Trainee</h1>
+
+@if (Trainee == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <p>Are you sure you want to delete trainee @Trainee.Name?</p>
+
+    <button class="btn btn-danger" @onclick="DeleteTrainee">Delete</button>
+    <button class="btn btn-secondary" @onclick="CancelDelete">Cancel</button>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    public Trainee? Trainee { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Trainee = MockData.Trainees.FirstOrDefault(t => t.ID == Id);
+    }
+
+    private void DeleteTrainee()
+    {
+        if (Trainee != null)
+        {
+            MockData.Trainees.Remove(Trainee);
+        }
+        NavigationManager.NavigateTo("/trainees");
+    }
+
+    private void CancelDelete()
+    {
+        NavigationManager.NavigateTo("/trainees");
+    }
+}

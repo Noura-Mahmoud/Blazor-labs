@@ -1,0 +1,65 @@
+﻿@page "/trackcreate"
+@page "/tracks/create"
+@inject NavigationManager NavigationManager
+
+<h3>Create Track</h3>
+
+@code {
+
+    private Track newTrack = new Track();
+
+    public bool Saved;
+
+    protected async Task HandleValidSubmit()
+    {
+        // Add new track to data source
+        newTrack.ID = MockData.Tracks.Count + 1;
+        MockData.Tracks.Add(newTrack);
+
+        // Set Saved to true to show success message
+        Saved = true;
+        await Task.Delay(1000); // Simulating the save operation with a delay
+        Saved = false;
+        NavigationManager.NavigateTo("/tracks"); // Navigate back to the trainees page
+
+        // Reset newTrack object for next submission
+        newTrack = new Track();
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        // Set Saved to false to show validation error message
+        Saved = false;
+    }
+}
+
+@if(!Saved)
+{
+    <EditForm Model="@newTrack" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+
+        <ValidationSummary></ValidationSummary>
+
+        <div class="form-group row">
+            <label for="name" class="col-form-label">Name: </label>
+            <InputText id="name" class="form-control" @bind-Value="@newTrack.Name" placeholder="Enter name"></InputText>
+            <ValidationMessage For="@(() => newTrack.Name)" />
+        </div>
+
+        <div class="form-group row">
+            <label for="description" class="col-form-label">Description: </label>
+            <InputTextArea id="description" class="form-control" @bind-Value="@newTrack.Description" placeholder="Enter description"></InputTextArea>
+            <ValidationMessage For="@(() => newTrack.Description)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create track</button>
+
+    </EditForm>
+}
+else
+{
+    <div class="alert-success">
+        Track created successfully.
+    </div>
+}

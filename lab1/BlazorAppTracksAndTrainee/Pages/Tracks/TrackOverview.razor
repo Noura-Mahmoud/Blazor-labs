@@ -1,0 +1,38 @@
+﻿@page "/tracks"
+@page "/tracksOverview"
+<h3>Tracks Overview</h3>
+
+@code {
+
+}
+
+<a href="@($"trackcreate")" class="btn btn-outline-primary"> Add New Track </a>
+
+
+@if (MockData.Tracks == null)
+{
+    <p> Loading......... </p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th> Track-ID </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th>&nbsp;</th>
+        </tr>
+        @foreach (var track in MockData.Tracks)
+        {
+            <tr>
+                <td> @track.ID </td>
+                <td> @track.Name </td>
+                <td> @track.Description </td>
+                <td> <a href="@($"trackdetails/{track.ID}")" class="btn btn-outline-primary"> Details </a>
+                    <a href="@($"trackedit/{track.ID}")" class="btn btn-outline-primary"> Edit </a>
+                    <a href="@($"trackdelete/{track.ID}")" class="btn btn-outline-danger"> Delete </a>
+                </td>
+            </tr>
+        }
+    </table>
+}

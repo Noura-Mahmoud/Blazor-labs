@@ -1,0 +1,41 @@
+﻿@page "/trackdelete/{trackId:int}"
+@page "/tracks/delete/{trackId:int}"
+@using System.Linq
+@inject NavigationManager NavigationManager
+
+
+<h3>Delete Track</h3>
+
+@if (Track == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <form>
+        <p>Are you sure you want to delete the track "@Track.Name"?</p>
+        <button type="button" class="btn btn-danger" @onclick="DeleteTrack">Delete</button>
+        <a href="/tracks" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+
+@code {
+    [Parameter]
+    public int TrackId { get; set; }
+
+    public Track? Track { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Track = MockData.Tracks.FirstOrDefault(t => t.ID == TrackId);
+    }
+
+    private void DeleteTrack()
+    {
+        if (Track != null)
+        {
+            MockData.Tracks.Remove(Track);
+        }
+        NavigationManager.NavigateTo("/tracks");
+    }
+}
