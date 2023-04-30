@@ -1,0 +1,45 @@
+﻿@page "/trainees/delete/{id:int}"
+@page "/traineedelete/{id:int}"
+
+@inject NavigationManager NavigationManager
+
+<h1>Delete Trainee</h1>
+
+@if (Trainee == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <p>Are you sure you want to delete trainee @Trainee.Name?</p>
+
+    <button class="btn btn-danger" @onclick="DeleteTrainee">Delete</button>
+    <button class="btn btn-secondary" @onclick="CancelDelete">Cancel</button>
+}
+
+@code {
+    [Inject]
+    public ITraineeService traineeService { get; set; }
+    [Parameter]
+    public int Id { get; set; }
+    public Trainee? Trainee { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Trainee = await traineeService.GetTraineeById(Id);
+    }
+
+    private async void DeleteTrainee()
+    {
+        if (Trainee != null)
+        {
+            await traineeService.DeleteTrainee(Id);
+        }
+        NavigationManager.NavigateTo("/trainees");
+    }
+
+    private void CancelDelete()
+    {
+        NavigationManager.NavigateTo("/trainees");
+    }
+}

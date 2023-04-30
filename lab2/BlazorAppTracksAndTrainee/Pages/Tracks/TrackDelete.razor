@@ -1,0 +1,43 @@
+﻿@page "/trackdelete/{trackId:int}"
+@page "/tracks/delete/{trackId:int}"
+@using System.Linq
+@inject NavigationManager NavigationManager
+
+
+<h3>Delete Track</h3>
+
+@if (Track == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <form>
+        <p>Are you sure you want to delete the track "@Track.Name"?</p>
+        <button type="button" class="btn btn-danger" @onclick="DeleteTrack">Delete</button>
+        <a href="/tracks" class="btn btn-secondary">Cancel</a>
+    </form>
+}
+
+@code {
+    [Inject]
+    public ITrackService trackServices { get; set; }
+    [Parameter]
+    public int TrackId { get; set; }
+
+    public Track? Track { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Track = await trackServices.GetTrackById(TrackId);
+    }
+
+    private async void DeleteTrack()
+    {
+        if (Track != null)
+        {
+            await trackServices.DeleteTrack(TrackId);
+        }
+        NavigationManager.NavigateTo("/tracks");
+    }
+}

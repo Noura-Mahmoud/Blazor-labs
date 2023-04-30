@@ -1,0 +1,76 @@
+﻿@page "/trackedit/{trackId:int}"
+@page "/tracks/edit/{trackId:int}"
+@inject NavigationManager NavigationManager
+
+<h3>Track Edit</h3>
+
+@code {
+    [Inject]
+    public ITrackService trackServices { get; set; }
+    [Parameter]
+    public int TrackId { get; set; }
+
+    public Track? Track { get; set; } = new Track();
+
+    public bool Saved;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Saved = false;
+
+        Track = await trackServices.GetTrackById(TrackId);
+
+        //await base.OnInitializedAsync();
+    }
+
+    protected async void HandleValidSubmit()
+    {
+        await trackServices.UpdateTrack(Track);
+        Saved = true;
+        await Task.Delay(1000); // Simulating the save operation with a delay
+        Saved = false;
+        NavigationManager.NavigateTo("/tracks"); // Navigate back to the trainees page
+    }
+
+    protected void HandleInvalidSubmit()
+    {
+        Saved = false;
+    }
+}
+@if (Track == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+@if(!Saved)
+{
+<EditForm Model="@Track" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+
+    <ValidationSummary></ValidationSummary>
+
+    <div class="form-group row">
+        <label for="name" class="col-form-label">Name: </label>
+        <InputText id="name" class="form-control" @bind-Value="@Track.Name" placeholder="Enter name"></InputText>
+            <ValidationMessage For="@(() => Track.Name)" />
+    </div>
+
+    <div class="form-group row">
+        <label for="description" class="col-form-label">Description: </label>
+        <InputTextArea id="description" class="form-control" @bind-Value="@Track.Description" placeholder="Enter description"></InputTextArea>
+            <ValidationMessage For="@(() => Track.Description)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save track</button>
+
+</EditForm>
+}
+else
+{
+    <div class="alert-success">
+        Track saved successfully.
+    </div>
+}
+}

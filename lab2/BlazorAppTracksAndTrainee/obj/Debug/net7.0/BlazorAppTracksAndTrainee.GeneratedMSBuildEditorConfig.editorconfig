@@ -1,0 +1,89 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorAppTracksAndTrainee
+build_property.RootNamespace = BlazorAppTracksAndTrainee
+build_property.ProjectDir = G:\ITI_mobile cross\Blazor\Day02\lab2\BlazorAppTracksAndTrainee\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = G:\ITI_mobile cross\Blazor\Day02\lab2\BlazorAppTracksAndTrainee
+build_property._RazorSourceGeneratorDebug = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Tracks/TrackCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhY2tzXFRyYWNrQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Tracks/TrackDelete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhY2tzXFRyYWNrRGVsZXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Tracks/TrackDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhY2tzXFRyYWNrRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Tracks/TrackEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhY2tzXFRyYWNrRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Tracks/TrackOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhY2tzXFRyYWNrT3ZlcnZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Trainees/TraineeCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhaW5lZXNcVHJhaW5lZUNyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Trainees/TraineeDelete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhaW5lZXNcVHJhaW5lZURlbGV0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Trainees/TraineeDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhaW5lZXNcVHJhaW5lZURldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Trainees/TraineeEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhaW5lZXNcVHJhaW5lZUVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Pages/Trainees/TraineeOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhaW5lZXNcVHJhaW5lZU92ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-z3tr3vywiz
+
+[G:/ITI_mobile cross/Blazor/Day02/lab2/BlazorAppTracksAndTrainee/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ruvnfcn40o

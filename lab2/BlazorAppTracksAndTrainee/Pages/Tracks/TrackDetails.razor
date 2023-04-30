@@ -1,0 +1,25 @@
+﻿@page "/trackdetails/{TrackId:int}"
+@page "/tracks/details/{TrackId:int}"
+
+<h3>Track Details for @Track.Name</h3>
+@if (Track == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+<div class="form-group row">
+    <label class="col-form-label"> Track ID</label>
+    <label class="form-control"> @Track.ID </label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label"> Name </label>
+    <label class="form-control"> @Track.Name </label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label"> Description </label>
+    <label class="form-control"> @Track.Description </label>
+</div>
+}
