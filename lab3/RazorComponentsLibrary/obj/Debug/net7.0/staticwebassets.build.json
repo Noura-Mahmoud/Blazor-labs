@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "vpHdiI9V9Kh2ErWTwWxmaoANYnY5DRN4exuVRI5YAhc=",
+  "Source": "RazorComponentsLibrary",
+  "BasePath": "_content/RazorComponentsLibrary",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RazorComponentsLibrary\\wwwroot",
+      "Source": "RazorComponentsLibrary",
+      "ContentRoot": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\",
+      "BasePath": "_content/RazorComponentsLibrary",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\background.png",
+      "SourceId": "RazorComponentsLibrary",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\",
+      "BasePath": "_content/RazorComponentsLibrary",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "RazorComponentsLibrary",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\",
+      "BasePath": "_content/RazorComponentsLibrary",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    }
+  ]
+}

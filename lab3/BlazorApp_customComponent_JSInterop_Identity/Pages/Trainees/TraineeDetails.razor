@@ -1,0 +1,71 @@
+﻿@page "/trainees/details/{Id:int}"
+@page "/traineedetails/{Id:int}"
+@attribute [Authorize]
+
+<h3>Trainee Details</h3>
+
+@if (trainee == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+<div class="form-group row">
+    <label class="col-form-label  ">ID</label>
+     
+        <label class="form-control">@trainee.ID</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">Name</label>
+     
+        <label class="form-control">@trainee.Name</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">Gender</label>
+     
+        <label class="form-control">@trainee.Gender</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">Email</label>
+     
+        <label class="form-control">@trainee.Email</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">MobileNo</label>
+     
+        <label class="form-control">@trainee.MobileNo</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">Birthdate</label>
+     
+        <label class="form-control">@trainee.Birthdate.ToString("dd/MM/yyyy")</label>
+</div>
+
+<div class="form-group row">
+    <label class="col-form-label  ">Is Graduated</label>
+     
+        <label class="form-control">@trainee.IsGraduated</label>
+</div>
+
+
+@code {
+    [Inject]
+    public ITraineeService traineeService { get; set; }
+    [Parameter]
+    public int Id { get; set; }
+
+    private Trainee? trainee;
+
+    protected async override Task OnInitializedAsync()
+    {
+        trainee = await traineeService.GetTraineeById(Id);
+        //await base.OnInitializedAsync();
+    }
+
+}
+}

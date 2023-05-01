@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BlazorApp_customComponent_JSInterop_Identity.props" />
+</Project>

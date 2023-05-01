@@ -1,0 +1,44 @@
+﻿@using Microsoft.JSInterop;
+<div class="message-button">
+    <button class="btn btn-@ButtonColor" @onclick="OnButtonClicked">@ButtonText</button>
+    <span class="message-box bg-light p-2 rounded">@state</span>
+    @*<div class="badge badge-@BadgeColor">@state</div>*@
+    
+</div>
+
+@code {
+    [Parameter] public string ButtonColor { get; set; } = "danger";
+    [Parameter] public string ButtonText { get; set; } = "Delete";
+    [Parameter] public string BadgeColor { get; set; } = "secondary";
+
+    private bool isMessageBoxOpen = false;
+    private bool isDeleting = false;
+    private string state = "Message box hasn't been opened yet";
+
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
+    private async Task OnButtonClicked()
+    {
+        if (!isMessageBoxOpen && !isDeleting)
+        {
+            isMessageBoxOpen = true;
+            var result = await JSRuntime.InvokeAsync<bool?>("confirm", "Deleting cannot be undone. Are you sure you want to delete?");
+            if (result.HasValue && result.Value)
+            {
+                isDeleting = true;
+                // Perform delete operation here
+                await Task.Delay(1000); // Simulate delete operation delay
+                state = "Deleted!";
+            }
+            else
+            {
+                state = "Canceled";
+            }
+            isDeleting = false;
+            isMessageBoxOpen = false;
+            StateHasChanged();
+        }
+    }
+}
+

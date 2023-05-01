@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\background.png",
+      "PackagePath": "staticwebassets\\background.png"
+    },
+    {
+      "Id": "G:\\ITI_mobile cross\\Blazor\\Day03\\lab3\\BlazorApp_customComponent_JSInterop_Identity\\RazorComponentsLibrary\\wwwroot\\exampleJsInterop.js",
+      "PackagePath": "staticwebassets\\exampleJsInterop.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.RazorComponentsLibrary.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.RazorComponentsLibrary.props",
+      "PackagePath": "build\\RazorComponentsLibrary.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.RazorComponentsLibrary.props",
+      "PackagePath": "buildMultiTargeting\\RazorComponentsLibrary.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.RazorComponentsLibrary.props",
+      "PackagePath": "buildTransitive\\RazorComponentsLibrary.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

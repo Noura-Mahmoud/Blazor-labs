@@ -1,0 +1,56 @@
+﻿@page "/interop"
+@attribute [Authorize]
+
+@using Microsoft.JSInterop;
+
+@inject IJSRuntime JsRuntime
+
+<button class="btn btn-secondary" @onclick="CallJSMethod"> Haty a5rk </button>
+<br />
+<br />
+<button class="btn btn-secondary" @onclick="Check"> Answer </button>
+<div>@msg</div>
+
+<br />
+<br />
+@*Calling javaScript function from C#:*@
+@code
+{
+    //HatyA5rk function defined in myScript.js file, so should refrence it inside _Host.cshtml
+    private async Task CallJSMethod()
+    {
+        await JsRuntime.InvokeVoidAsync("HatyA5rk");
+    }
+
+
+
+    [Inject]
+    public IJSRuntime jsRuntime { get; set; }
+    public string msg { get; set; } = string.Empty;
+
+    async Task Check()
+    {
+        bool confirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Are you angry?");
+        if (confirmed)
+        {
+            msg = "I'm angry too :(";
+        }
+        else
+        {
+            msg = "Good for you,Keep your cool!";
+        }
+    }
+}
+
+
+@*Calling C# function from javaScript:*@
+<button class="btn btn-info" onclick="giveMeRandomInt()">Randomize</button>
+<div> the random number is: <span id="randomNumSpan"></span> </div>
+@code
+{
+    [JSInvokable]
+    public static Task<int> GenerateRandomInt() //we need to call this function from js function
+    {
+        return Task.FromResult(new Random().Next());
+    }
+}

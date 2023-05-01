@@ -1,0 +1,60 @@
+﻿@page "/trainees"
+@page "/traineesOverview"
+@attribute [Authorize]
+
+<h3>Trainees Overview</h3>
+
+<a href="@($"trainees/create")" class="btn btn-outline-primary"> Add New Trainee </a>
+
+@code{
+    [Inject]
+    public ITraineeService traineeService { get; set; }
+    IEnumerable<Trainee> allTrainees { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        allTrainees = await traineeService.GetAllTrainees();
+        //await base.OnInitializedAsync();
+    }
+}
+
+@if (allTrainees == null)
+{
+    <p> Loading......... </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th>Birthdate</th>
+                <th>Is Graduated</th>
+                <th>&nbsp;</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var trainee in allTrainees)
+            {
+                <tr>
+                    <td>@trainee.ID</td>
+                    <td>@trainee.Name</td>
+                    <td>@trainee.Gender</td>
+                    <td>@trainee.Email</td>
+                    <td>@trainee.MobileNo</td>
+                    <td>@trainee.Birthdate.ToShortDateString()</td>
+                    <td>@(trainee.IsGraduated ? "Yes" : "No")</td>
+                    <td>
+                        <a href="@($"trainees/details/{trainee.ID}")" class="btn btn-outline-primary"> Details </a>
+                        <a href="@($"trainees/edit/{trainee.ID}")" class="btn btn-outline-primary"> Edit </a>
+                        <a href="@($"trainees/delete/{trainee.ID}")" class="btn btn-outline-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

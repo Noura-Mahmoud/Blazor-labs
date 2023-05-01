@@ -1,0 +1,35 @@
+﻿<div class="item-grid">
+    @foreach (var item in Items)
+    {
+        <div class="item-card">
+            <img class="item-image" src="@item.ImageUrl" alt="@item.Name">
+            <div class="item-details">
+                <div class="item-name">@item.Name</div>
+                <div class="item-description">@item.Description</div>
+                <div class="item-price">@item.Price.ToString("C")</div>
+                <button class="btn btn-primary" @onclick="() => OnAddToCart(item)">Add to cart</button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Item> Items { get; set; }
+
+    [Parameter]
+    public EventCallback<Item> OnAddToCartCallback { get; set; }
+
+    private async Task OnAddToCart(Item item)
+    {
+        await OnAddToCartCallback.InvokeAsync(item);
+    }
+
+    public class Item
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public string ImageUrl { get; set; }
+    }
+}

@@ -1,0 +1,59 @@
+﻿@page "/components"
+@attribute [Authorize]
+
+<h3>Components</h3>
+@using RazorComponentsLibrary
+
+<MessageButton ButtonColor="danger" ButtonText="Delete" BadgeColor="secondary"></MessageButton>
+<br />
+<br />
+
+
+<CollapsiblePanel>
+    <p>This is the content of my panel</p>
+</CollapsiblePanel>
+
+<br />
+<br />
+<ItemGrid Items="@ItemData" OnAddToCartCallback="HandleAddToCart" />
+
+
+@code {
+    private List<ItemGrid.Item> ItemData = new List<ItemGrid.Item>
+    {
+        new ItemGrid.Item
+        {
+            Name = "Item 1",
+            Description = "This is item 1.",
+            Price = 10.99M,
+            ImageUrl = "https://dummyimage.com/286x180/8EB1C7/FEFDFF.png&text=Item+1"
+        },
+        new ItemGrid.Item
+        {
+            Name = "Item 2",
+            Description = "This is item 2.",
+            Price = 5.99M,
+            ImageUrl = "https://dummyimage.com/286x180/8EB1C7/FEFDFF.png&text=Item+2"
+        },
+        new ItemGrid.Item
+        {
+            Name = "Item 3",
+            Description = "This is item 3.",
+            Price = 8.99M,
+            ImageUrl = "https://dummyimage.com/286x180/8EB1C7/FEFDFF.png&text=Item+3"
+        },
+    };
+    
+
+    [Inject]
+    public IJSRuntime jsRuntime { get; set; }
+    private async Task HandleAddToCart(ItemGrid.Item item)
+    {
+        await Task.Delay(1000); // Simulate a delay
+
+
+        // Show an alert to confirm the item was added to the cart
+        await jsRuntime.InvokeVoidAsync("alert", $"{item.Name} was added to the cart!");
+        //await JSRuntime.InvokeVoidAsync("alert", $"{item.Name} was added to the cart!");
+    }
+}
